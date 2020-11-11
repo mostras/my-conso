@@ -1,4 +1,10 @@
-<h1>Here are my drugs</h1>
+<h1>Get a new stuff</h1>
+
+<% if @takes.any? %>
+  <% @takes.each do |take| %>
+    <%= render 'shared/take_line', take: take %>
+  <% end %>
+<% end %>
 
 <% @drugs.each do |drug| %>
   <%= render 'shared/drug_card', drug: drug %>
