@@ -1,0 +1,5 @@
+<h1>Here are my drugs</h1>
+
+<% @drugs.each do |drug| %>
+  <%= render 'shared/drug_card', drug: drug %>
+<% end %>
