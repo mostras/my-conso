@@ -1,9 +1,10 @@
 <h1>Welcome to you fucker</h1>
 
+<%= link_to parties_path, method: :post do  %>
+  <h2>Start Partying</h2>
+<% end %>
+
 <% @parties.each do |party| %>
   <%= render 'shared/party_card', party: party %>
 <% end %>
 
-<%= link_to parties_path, method: :post do  %>
-  <h2>Start Partying</h2>
-<% end %>

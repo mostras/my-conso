@@ -1,11 +1,19 @@
-<h1>Get a new stuff</h1>
-
-<% if @takes.any? %>
-  <% @takes.each do |take| %>
-    <%= render 'shared/take_line', take: take %>
-  <% end %>
+<h1>Happy Party</h1>
+<p>Started on <%= @party.created_at.strftime('%d/%m/%Y - %H:%M') %></p>
+<p>It's <%= Time.now.strftime('%H:%M') %> </p>
+<% if @takes.count == 0 %>
+  <p>You haven't take anything yet</p>
+<% else %>
+  <p>Last take: <%= @takes.last.drug.name %> at <%= @takes.last.created_at.strftime('%H:%M') %></p>
+  <p>Total takes: @takes.count</p>
 <% end %>
+
+<%= link_to 'See details', party_path(@party) %>
+
 
 <% @drugs.each do |drug| %>
   <%= render 'shared/drug_card', drug: drug %>
 <% end %>
+
+
+<%= link_to "Party's over, go to sleep", stop_partying_party_path(@party), method: :patch %>

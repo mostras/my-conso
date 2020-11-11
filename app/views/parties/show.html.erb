@@ -1,0 +1,7 @@
+<h1>Your party on <%= @party.created_at.strftime('%d/%m/%Y') %></h1>
+<p>First take: <%= @party.takes.first.created_at.strftime('%d/%m/%Y - %H:%M') %></p>
+<p>Last take: <%= @party.takes.last.created_at.strftime('%d/%m/%Y - %H:%M') %></p>
+<p>Total takes: <%= @party.takes.count %> </p>
+<% @party.takes.each do |take| %>
+  <%= render 'shared/take_line', take: take %>
+<% end %>

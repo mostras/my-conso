@@ -1,3 +1,6 @@
-<div>
-  <h1><%= party.starting_date %> </h1>
-</div>
+<%= link_to party_path(party) do  %>
+  <div>
+    <h2><%= party.created_at.strftime('%d/%m/%Y')%></h2>
+    <p><%= party.takes.count %> takes</p>
+  </div>
+<% end %>
